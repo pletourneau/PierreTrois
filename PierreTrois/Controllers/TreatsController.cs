@@ -16,7 +16,7 @@ namespace PierreTrois.Controllers
   {
     private readonly PierreTroisContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
-    public RecipesController(UserManager<ApplicationUser> userManager, RecipeBoxContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, PierreTroisContext db)
     
     {
       _userManager = userManager;
@@ -50,8 +50,8 @@ namespace PierreTrois.Controllers
       {
         string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-        recipe.User = currentUser;
-        _db.Recipes.Add(treat);
+        treat.User = currentUser;
+        _db.Treats.Add(treat);
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
@@ -84,9 +84,9 @@ namespace PierreTrois.Controllers
 
     public ActionResult Delete(int id)
     {
-      ViewBag.Title = "Delete Recipe";
-      Recipe targetRecipe = _db.Recipes.FirstOrDefault(entry => entry.RecipeId == id);
-      return View(targetRecipe);
+      ViewBag.Title = "Delete Treat";
+      Treat targetTreat = _db.Treats.FirstOrDefault(entry => entry.TreatId == id);
+      return View(targetTreat);
     }
 
     [HttpPost, ActionName("Delete")]
