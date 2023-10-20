@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace RecipeBox.ViewModels
+namespace PierreTrois.ViewModels
 {
   public class LoginViewModel
   {
