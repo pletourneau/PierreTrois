@@ -2,7 +2,7 @@
 
 #### A C# MVC web application for displaying a menu of treats and their associated flavors
 
-#### By Jonathan Cheng, Paul LeTourneau
+#### By Paul LeTourneau
 
 ## Technologies Used
 
@@ -37,7 +37,7 @@
 
 - _Verify that you have the required technology installed for MySQL (https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/) and MySQL Workbench (https://dev.mysql.com/doc/workbench/en/)._
 - _Also check that Entity Framework Core's `dotnet-ef` tool is installed on your system so that it can perform database migrations and updates. Run the following command in your terminal:_
-  > ```bash
+  > ```
   > $ dotnet tool install --global dotnet-ef --version 6.0.0
   > ```
 
@@ -49,13 +49,13 @@ _2. Navigate to where you want to place the cloned directory._
 
 _3. Clone the repository from the GitHub link by entering in this command:_
 
-> ```bash
-> $ git clone https://github.com/joncheng-dev/RecipeBox
+> ```
+> $ git clone https://github.com/pletourneau/PierreTrois
 > ```
 
-_4. Navigate to the project's production directory `RecipeBox`, and create a new file called `appsettings.json`._
+_4. Navigate to the project's production directory `PierreTrois`, and create a new file called `appsettings.json`._
 
-_5. Within `appsettings.json`, add the following code, replacing the `uid`, and `pwd` values with your username and password for MySQL. Under `database`, add any name that you deem fit -- although `recipe_box_db` is suggested for organization sake and clarity of purpose._
+_5. Within `appsettings.json`, add the following code, replacing the `uid`, and `pwd` values with your username and password for MySQL. Under `database`, add any name that you deem fit -- although `pierre_trois_db` is suggested for organization sake and clarity of purpose._
 
 ```json
 {
@@ -65,35 +65,35 @@ _5. Within `appsettings.json`, add the following code, replacing the `uid`, and 
 }
 ```
 
-_6. In the terminal, while in the project's production directory `RecipeBox`, run the following command. It will utilize the repository's migrations to create and update the database. You may opt to verify that the database has been created successfully in MySQL Workbench._
+_6. In the terminal, while in the project's production directory `PierreTrois`, run the following command. It will utilize the repository's migrations to create and update the database. You may opt to verify that the database has been created successfully in MySQL Workbench._
 
-> ```bash
+> ```
 > $ dotnet ef database update
 > ```
 
 ## Running the Project
 
-- _In the command line, while in the project's production directory `RecipeBox`, run this command to compile and execute the web application. A new browser window should open, allowing you to interact with it._
+- _In the command line, while in the project's production directory `PierreTrois`, run this command to compile and execute the web application. A new browser window should open, allowing you to interact with it._
 
-> ```bash
+> ```
 > $ dotnet watch run
 > ```
 
 - _Alternatively, using the command `dotnet run` will execute the application. Manually open a browser window and navigate to the application url (ex: `https://localhost:5001` or `http://localhost:5000`)_
 
-> ```bash
+> ```
 > $ dotnet run
 > ```
 
 - _Optionally, to compile this web app without running it, enter:_
 
-> ```bash
+> ```
 > $ dotnet build
 > ```
 
 ## Known Bugs
 
-- _Index view of role controller currently doesn't display users that belong to a given role._
+- _none. Please email Paul at <pletourneau62@gmail.com> if any are found!_
 
 ## License
 
@@ -105,4 +105,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) _2023_ _Jonathan Cheng,_ _Paul LeTourneau,_ _Jake Elsberry_
+Copyright (c) _2023_ _Paul LeTourneau_
