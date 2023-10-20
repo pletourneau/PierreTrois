@@ -24,7 +24,7 @@ namespace PierreTrois.Controllers
       ViewBag.Name = "List of Flavors";
       return View(_db.Flavors.ToList());
     }
-  
+
     public ActionResult Create()
     {
       ViewBag.Name = "Add a new flavor";
@@ -60,23 +60,49 @@ namespace PierreTrois.Controllers
     public ActionResult Edit(int id)
     {
       ViewBag.Name = "Edit Flavor";
-      Flavor targetFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id); 
-      return View(targetFlavor);     
+      Flavor targetFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
+      return View(targetFlavor);
     }
+
+    // [HttpPost]
+    // public ActionResult Edit(Treat treat)
+    // {
+    //   _db.Treats.Update(treat);
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index");
+    // }
 
     [HttpPost]
     public ActionResult Edit(Flavor flavorToEdit)
     {
       _db.Flavors.Update(flavorToEdit);
       _db.SaveChanges();
-      return RedirectToAction("Details", new { id = flavorToEdit.FlavorId });
+      return RedirectToAction("Index");
     }
+    // [HttpPost]
+    // public ActionResult Edit(Flavor flavorToEdit)
+    // {
+    //   // Retrieve the existing flavor from the database
+    //   Flavor existingFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == flavorToEdit.FlavorId);
+
+    //   if (existingFlavor != null)
+    //   {
+    //     // Apply the changes to the existing flavor
+    //     existingFlavor.Name = flavorToEdit.Name; // Update other properties as needed
+
+    //     // Save the changes to the database
+    //     _db.SaveChanges();
+    //   }
+
+    //   return RedirectToAction("Details", new { id = flavorToEdit.FlavorId });
+    // }
+
 
     public ActionResult Delete(int id)
     {
       ViewBag.Name = "Delete Flavor";
       Flavor targetFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
-      return View(targetFlavor);            
+      return View(targetFlavor);
     }
 
     [HttpPost, ActionName("Delete")]
@@ -87,7 +113,7 @@ namespace PierreTrois.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    
+
     public ActionResult AddTreat(int id)
     {
       ViewBag.Name = "Add Treat to this Flavor";
@@ -99,15 +125,15 @@ namespace PierreTrois.Controllers
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int treatId)
     {
-      #nullable enable
-      TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join =>(join.TreatId == treatId && join.FlavorId == flavor.FlavorId));
-      #nullable disable
+#nullable enable
+      TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.TreatId == treatId && join.FlavorId == flavor.FlavorId));
+#nullable disable
       if (joinEntity == null && treatId != 0)
       {
-        _db.TreatFlavors.Add(new TreatFlavor() {TreatId = treatId, FlavorId = flavor.FlavorId});
+        _db.TreatFlavors.Add(new TreatFlavor() { TreatId = treatId, FlavorId = flavor.FlavorId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new {id = flavor.FlavorId});
+      return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
     [HttpPost]

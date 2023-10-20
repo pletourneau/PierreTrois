@@ -1,14 +1,22 @@
 @{
   Layout = "_Layout";
 }
+@model PierreTrois.Models.Flavor;
 
-@model PierreTrois.Models.Flavor
+<h4>Edit a flavor </h4>
 
-<p>Edit the information below and click Save to submit changes.</p>
+
+<p>Edit this flavor's info: @Html.DisplayFor(flavor => flavor.Name)</p>
 <hr/>
-@using(Html.BeginForm())
+
+@using (Html.BeginForm())
 {
-  <p>@Html.DisplayNameFor(entry => entry.Name): @Html.EditorFor(entry => entry.Name) <input type="submit" value="Save Edits"/></p>
+  @Html.HiddenFor(flavor => flavor.FlavorId)
+
+  <h3>@Html.LabelFor(flavor => flavor.Name)</h3>
+  <h3>@Html.EditorFor(flavor => flavor.Name)</h3>
+  <br>
+  
+  <input type="submit" value="Edit Changes" class="btn btn-primary" />
+  <hr/>
 }
-<hr/>
-<p>@Html.ActionLink("Back to Flavor details", "Details", new { id = Model.FlavorId })</p>
