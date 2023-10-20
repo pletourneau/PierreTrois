@@ -6,7 +6,7 @@
 <h4>Edit a flavor </h4>
 
 
-<p>Edit this flavor's info: @Html.DisplayFor(flavor => flavor.Name)</p>
+<p>Edit info for: @Html.DisplayFor(flavor => flavor.Name)</p>
 <hr/>
 
 @using (Html.BeginForm())
@@ -14,7 +14,7 @@
   @Html.HiddenFor(flavor => flavor.FlavorId)
 
   <h3>@Html.LabelFor(flavor => flavor.Name)</h3>
-  <h3>@Html.EditorFor(flavor => flavor.Name)</h3>
+  @Html.EditorFor(flavor => flavor.Name)
   <br>
   
   <input type="submit" value="Edit Changes" class="btn btn-primary" />

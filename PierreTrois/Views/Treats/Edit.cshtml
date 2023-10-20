@@ -7,7 +7,7 @@
 <h4>Edit a treat </h4>
 
 
-<p>Edit this treat's info: @Html.DisplayFor(treat => treat.Name)</p>
+<p>Edit info for: @Html.DisplayFor(treat => treat.Name)</p>
 <hr/>
 
 @using (Html.BeginForm())
@@ -15,7 +15,7 @@
   @Html.HiddenFor(treat => treat.TreatId)
 
   <h3>@Html.LabelFor(treat => treat.Name)</h3>
-  <h3>@Html.EditorFor(treat => treat.Name)</h3>
+  @Html.EditorFor(treat => treat.Name)
   <br>
   
   <input type="submit" value="Edit Changes" class="btn btn-primary" />
