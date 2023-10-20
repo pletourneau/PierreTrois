@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTrois.Models.Flavor;
+@using System;
+
+@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger"})
+@using (Html.BeginForm())
+{
+  <h4>@Html.LabelFor(model => model.Name)</h4>
+  <h4>@Html.TextBoxFor(model => model.Name)</h4>
+  <br/>
+
+  <input type="submit" value="create flavor" />
+}
