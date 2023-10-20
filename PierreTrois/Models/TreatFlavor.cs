@@ -6,6 +6,6 @@ namespace PierreTrois.Models
     public int TreatId { get; set; }
     public Treat Treat { get; set; }
     public int FlavorId { get; set; }
-    public Recipe Recipe { get; set; }
+    public Flavor Flavor { get; set; }
   }
 }  
