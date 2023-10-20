@@ -26,14 +26,12 @@ namespace PierreTrois.Controllers
     [AllowAnonymous]
     public ActionResult Index()
     { 
-      ViewBag.Title = "Treat Menu";
       List<Treat> model = _db.Treats.ToList();
       return View(model);
     }
     
     public ActionResult Create()
     {
-      ViewBag.Title = "Add a new treat";
       return View();
     }
 
@@ -42,7 +40,6 @@ namespace PierreTrois.Controllers
     {
       if (!ModelState.IsValid)
       {
-        ViewBag.Title = "Add a new treat";
         ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
         return View(treat);
       }
@@ -60,7 +57,6 @@ namespace PierreTrois.Controllers
     [AllowAnonymous]
     public ActionResult Details(int id)
     {
-      ViewBag.Title = "Treat Details";
       Treat targetTreat = _db.Treats.Include(entry => entry.JoinEntities)
                                        .ThenInclude(join => join.Flavor)
                                        .FirstOrDefault(entry => entry.TreatId == id);
@@ -69,7 +65,6 @@ namespace PierreTrois.Controllers
 
     public ActionResult Edit(int id)
     {
-      ViewBag.Name = "Edit Treat";
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
@@ -84,7 +79,6 @@ namespace PierreTrois.Controllers
 
     public ActionResult Delete(int id)
     {
-      ViewBag.Title = "Delete Treat";
       Treat targetTreat = _db.Treats.FirstOrDefault(entry => entry.TreatId == id);
       return View(targetTreat);
     }

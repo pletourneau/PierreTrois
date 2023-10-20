@@ -5,9 +5,9 @@
 @using PierreTrois.Models
 @model PierreTrois.Models.Flavor
 
-<p><strong>@Html.DisplayNameFor(targetFlavor => targetFlavor.Name)</strong>: @Html.DisplayFor(targetFlavor => targetFlavor.Name)</p>
+<p><strong>Flavor Name</strong>: @Html.DisplayFor(targetFlavor => targetFlavor.Name)</p>
 
-<h5>Treats with this flavor</h5>
+<h5>Treats with this Flavor</h5>
 <hr />
 @if(@Model.JoinEntities.Count == 0)
 {
