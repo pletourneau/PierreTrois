@@ -2,6 +2,36 @@
   Layout = "_Layout";
 }
 
+@using PierreTrois.Models;
+
 <div class="text-center">
     <h1 class="display-4">Welcome to Pierre's Bakeshop</h1>
 </div>
+
+<h4>Treats on the menu</h4>
+@if (Model["treats"].Length == 0)
+{
+  <p>No treats have been added yet!</p>
+} 
+<ul>
+  @foreach (Treat treat in Model["treats"])
+  {
+    <li>@Html.ActionLink(@treat.Name, "Details", "Treats", new { id = @treat.TreatId})</li>
+  }
+</ul>
+
+
+<h4>Flavors of the Maison</h4>
+@if (Model["flavors"].Length == 0)
+{
+<p>No flavors have been defined yet!</p>
+} 
+<ul>
+@foreach (Flavor flavor in Model["flavors"])
+{
+    <li>@Html.ActionLink(@flavor.Name, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
+}
+</ul>
+
+<hr/>
+

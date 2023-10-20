@@ -22,7 +22,12 @@ namespace PierreTrois.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      Treat[] treats = _db.Treats.ToArray();
+      Flavor[] flavors = _db.Flavors.ToArray();
+      Dictionary<string,object[]> model = new Dictionary<string, object[]>();
+      model.Add("treats", treats);
+      model.Add("flavors", flavors);
+      return View(model);
     }
   }
 
