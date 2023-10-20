@@ -7,9 +7,7 @@
 
 <div class="container">
   
-  <p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
   
-  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:", new { @class = "text-danger", @style = "font-weight: 600;"})
   @using (Html.BeginForm())
   {
     <h4>@Html.LabelFor(model => model.Name)</h4>
@@ -17,6 +15,11 @@
     <br/>
     <input type="submit" value="Submit" class="btn btn-primary"/>
   }
+  @if (!ViewData.ModelState.IsValid)
+  {
+    @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:", new { @class = "text-danger", @style = "font-weight: 600;"})
+  }
+
 </div>
 <hr />
 <br/>
