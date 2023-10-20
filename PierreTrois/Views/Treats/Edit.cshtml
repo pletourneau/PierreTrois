@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTrois.Models.Treat;
+
+<h4>Edit a treat </h4>
+
+
+<p>Edit this treat's info: @Html.DisplayFor(treat => treat.Name)</p>
+<hr/>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(treat => treat.TreatId)
+
+  <h3>@Html.LabelFor(treat => treat.Name)</h3>
+  <h3>@Html.EditorFor(treat => treat.Name)</h3>
+  <br>
+  
+  <input type="submit" value="Edit Changes" class="btn btn-primary" />
+  <hr/>
+}
+
+<h5>@Html.ActionLink("Back to Treats", "Index")</h5>
