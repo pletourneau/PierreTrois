@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTrois.Models.Treat;
+
+<h2>Add a flavor to this treat: @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value ="add a flavor" />
+}
+
