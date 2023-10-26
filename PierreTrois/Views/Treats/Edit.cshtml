@@ -19,6 +19,11 @@
   <br>
   
   <input type="submit" value="Edit Changes" class="btn btn-primary" />
+  
+  @if (!ViewData.ModelState.IsValid)
+  {
+    @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:", new { @class = "text-danger", @style = "font-weight: 600;"})
+  }
   <hr/>
 }
 

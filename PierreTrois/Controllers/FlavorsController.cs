@@ -63,11 +63,18 @@ namespace PierreTrois.Controllers
     [HttpPost]
     public ActionResult Edit(Flavor flavorToEdit)
     {
-      _db.Flavors.Update(flavorToEdit);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if (!ModelState.IsValid)
+        {
+          return View(flavorToEdit);
+        }
+      
+      else
+      {
+        _db.Flavors.Update(flavorToEdit);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
     }
-
     public ActionResult Delete(int id)
     {
       Flavor targetFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);

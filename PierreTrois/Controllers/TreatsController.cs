@@ -72,6 +72,11 @@ namespace PierreTrois.Controllers
     [HttpPost]
     public ActionResult Edit(Treat treat)
     {
+      if (!ModelState.IsValid)
+      {
+        // ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+        return View(treat);
+      }
       _db.Treats.Update(treat);
       _db.SaveChanges();
       return RedirectToAction("Index");
